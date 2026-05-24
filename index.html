@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScotiaPath Prototype — [case]Hacks 2026</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="title-bar">
+  <h1>ScotiaPath</h1>
+  <p>[case]Hacks 2026 — Interactive Prototype</p>
+</div>
+
+<div class="app">
+
+  <!-- ── STATUS BAR ── -->
+  <div class="status">
+    <span class="status-time">9:41</span>
+    <span class="status-icons">
+      <i class="ti ti-signal-4g"></i>
+      <i class="ti ti-wifi"></i>
+      <i class="ti ti-battery-3"></i>
+    </span>
+  </div>
+
+  <!-- ── TOP BAR ── -->
+  <div class="top-bar">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div>
+        <div style="font-size:12px;color:#888;font-weight:600">Good morning</div>
+        <div style="font-size:19px;font-weight:700;color:#1a1a2e">Maya Rodriguez</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px">
+        <div style="position:relative">
+          <i class="ti ti-bell" style="font-size:22px;color:#1a1a2e"></i>
+          <span class="notif-dot"></span>
+        </div>
+        <div class="avatar" onclick="openProfile()">MR</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STORY ROW ── -->
+  <div class="story-row">
+    <div class="story-bubble" onclick="openWrap()">
+      <div class="story-ring"><div class="story-inner"><i class="ti ti-sparkles"></i></div></div>
+      <div class="story-lbl">2025 Wrap</div>
+    </div>
+    <div class="story-bubble" onclick="switchTab('invest')">
+      <div class="story-ring flat"><div class="story-inner"><i class="ti ti-trending-up"></i></div></div>
+      <div class="story-lbl">Invest</div>
+    </div>
+    <div class="story-bubble" onclick="switchTab('invest')">
+      <div class="story-ring flat"><div class="story-inner"><i class="ti ti-coin"></i></div></div>
+      <div class="story-lbl">Round-ups</div>
+    </div>
+    <div class="story-bubble" onclick="switchTab('invest')">
+      <div class="story-ring flat"><div class="story-inner"><i class="ti ti-school"></i></div></div>
+      <div class="story-lbl">Learn</div>
+    </div>
+  </div>
+
+  <!-- ════════ HOME SCREEN ════════ -->
+  <div class="screen active" id="screen-home">
+    <div class="red-card">
+      <div style="font-size:12px;color:rgba(255,255,255,0.8);font-weight:600">Total balance</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:44px;color:#fff;line-height:1;margin:4px 0 10px">$4,832.50</div>
+      <div style="display:flex;gap:18px">
+        <div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.7)">Chequing</div>
+          <div style="font-size:15px;color:#fff;font-weight:700">$2,862.20</div>
+        </div>
+        <div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.7)">Investments</div>
+          <div style="font-size:15px;color:#fff;font-weight:700">$1,970.30</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="card" style="width:100%;text-align:left;cursor:pointer;display:flex;align-items:center;gap:14px;border:1.5px solid #ec111a;background:#fff5f5;font-family:'Inter',sans-serif" onclick="switchTab('invest')">
+      <div style="width:44px;height:44px;border-radius:12px;background:#ec111a;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;flex-shrink:0"><i class="ti ti-seeding"></i></div>
+      <div style="flex:1">
+        <div style="font-size:14px;font-weight:700;color:#ec111a">Start investing today</div>
+        <div style="font-size:12px;color:#666;margin-top:2px">Turn spare change into a portfolio. No minimums.</div>
+      </div>
+      <i class="ti ti-chevron-right" style="font-size:20px;color:#ec111a"></i>
+    </button>
+
+    <div class="sect">Recent transactions</div>
+    <div class="card" style="padding:6px 16px">
+      <div class="txn"><div class="txn-icon">☕</div><div style="flex:1"><div style="font-size:14px;font-weight:600;color:#1a1a2e">Tim Hortons</div><div style="font-size:11px;color:#888">Today · 8:24 AM</div></div><div style="font-size:14px;font-weight:700;color:#1a1a2e">-$4.50</div></div>
+      <div class="txn"><div class="txn-icon">🛒</div><div style="flex:1"><div style="font-size:14px;font-weight:600;color:#1a1a2e">Loblaws</div><div style="font-size:11px;color:#888">Yesterday</div></div><div style="font-size:14px;font-weight:700;color:#1a1a2e">-$62.18</div></div>
+      <div class="txn"><div class="txn-icon">💵</div><div style="flex:1"><div style="font-size:14px;font-weight:600;color:#1a1a2e">Payroll deposit</div><div style="font-size:11px;color:#888">May 15</div></div><div style="font-size:14px;font-weight:700;color:#16a34a">+$1,420.00</div></div>
+      <div class="txn" style="border-bottom:none"><div class="txn-icon">🎵</div><div style="flex:1"><div style="font-size:14px;font-weight:600;color:#1a1a2e">Spotify</div><div style="font-size:11px;color:#888">May 14</div></div><div style="font-size:14px;font-weight:700;color:#1a1a2e">-$11.99</div></div>
+    </div>
+  </div>
+
+  <!-- ════════ INVEST SCREEN ════════ -->
+  <div class="screen" id="screen-invest">
+    <div class="dark-card">
+      <div style="font-size:12px;color:rgba(255,255,255,0.8);font-weight:600">Total investments</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:44px;color:#fff;line-height:1;margin:4px 0 4px">$1,970.30</div>
+      <div style="font-size:13px;color:#4ade80;font-weight:700;margin-bottom:14px"><i class="ti ti-trending-up"></i> +$123.40 (6.7%) this year</div>
+      <div style="display:flex;gap:14px">
+        <div style="flex:1;background:rgba(255,255,255,0.08);border-radius:10px;padding:10px 12px"><div style="font-size:11px;color:rgba(255,255,255,0.7)">TFSA</div><div style="font-size:15px;color:#fff;font-weight:700">$1,284.10</div></div>
+        <div style="flex:1;background:rgba(255,255,255,0.08);border-radius:10px;padding:10px 12px"><div style="font-size:11px;color:rgba(255,255,255,0.7)">FHSA</div><div style="font-size:15px;color:#fff;font-weight:700">$686.20</div></div>
+      </div>
+    </div>
+
+    <button class="wrap-btn" onclick="openWrap()">
+      <i class="ti ti-sparkles" style="font-size:18px"></i> Your 2025 Investment Wrap is here
+    </button>
+
+    <div class="sect">Automated actions</div>
+    <div class="toggle-row">
+      <div style="flex:1;padding-right:12px">
+        <div style="font-size:14px;font-weight:700;color:#1a1a2e">Round-Up Investing</div>
+        <div style="font-size:12px;color:#888;margin-top:2px">Round every purchase up, invest the difference in your TFSA</div>
+      </div>
+      <div class="tog on" id="tog-roundup" onclick="toggleAction('roundup')"></div>
+    </div>
+    <div class="toggle-row">
+      <div style="flex:1;padding-right:12px">
+        <div style="font-size:14px;font-weight:700;color:#1a1a2e">Smart Suggestions</div>
+        <div style="font-size:12px;color:#888;margin-top:2px">Scotia reviews your spending and suggests an amount — you approve each one</div>
+      </div>
+      <div class="tog" id="tog-smart" onclick="toggleAction('smart')"></div>
+    </div>
+
+    <div class="sect">This month</div>
+    <div class="card">
+      <div class="row"><span class="lbl">Round-ups collected</span><span class="green">+$42.80</span></div>
+      <div class="row"><span class="lbl">Transactions rounded</span><span class="val">86</span></div>
+      <div class="row" style="margin-bottom:0"><span class="lbl">On pace for this year</span><span class="val">$513 / yr</span></div>
+    </div>
+
+    <div class="sect">Recent round-ups</div>
+    <div class="card" style="padding:6px 16px">
+      <div class="txn"><div class="txn-icon">☕</div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:#1a1a2e">Tim Hortons</div><div style="font-size:11px;color:#888">$4.50 → $5.00</div></div><div class="green">+$0.50</div></div>
+      <div class="txn"><div class="txn-icon">🛒</div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:#1a1a2e">Loblaws</div><div style="font-size:11px;color:#888">$62.18 → $63.00</div></div><div class="green">+$0.82</div></div>
+      <div class="txn" style="border-bottom:none"><div class="txn-icon">🎵</div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:#1a1a2e">Spotify</div><div style="font-size:11px;color:#888">$11.99 → $12.00</div></div><div class="green">+$0.01</div></div>
+    </div>
+  </div>
+
+  <!-- ════════ PLACEHOLDER SCREENS ════════ -->
+  <div class="screen" id="screen-cards"><div style="text-align:center;padding-top:120px;color:#aaa"><i class="ti ti-credit-card" style="font-size:48px"></i><div style="margin-top:12px;font-weight:600">Cards — coming soon</div></div></div>
+  <div class="screen" id="screen-pay"><div style="text-align:center;padding-top:120px;color:#aaa"><i class="ti ti-arrows-exchange" style="font-size:48px"></i><div style="margin-top:12px;font-weight:600">Pay — coming soon</div></div></div>
+  <div class="screen" id="screen-more"><div style="text-align:center;padding-top:120px;color:#aaa"><i class="ti ti-dots" style="font-size:48px"></i><div style="margin-top:12px;font-weight:600">More — coming soon</div></div></div>
+
+  <!-- ── BOTTOM NAV ── -->
+  <div class="bottom-nav">
+    <button class="nav-btn act" id="nav-home" onclick="switchTab('home')"><i class="ti ti-home"></i><span>Home</span></button>
+    <button class="nav-btn" id="nav-invest" onclick="switchTab('invest')"><i class="ti ti-chart-line"></i><span>Invest</span></button>
+    <button class="nav-btn" id="nav-cards" onclick="switchTab('cards')"><i class="ti ti-credit-card"></i><span>Cards</span></button>
+    <button class="nav-btn" id="nav-pay" onclick="switchTab('pay')"><i class="ti ti-arrows-exchange"></i><span>Pay</span></button>
+    <button class="nav-btn" id="nav-more" onclick="switchTab('more')"><i class="ti ti-dots"></i><span>More</span></button>
+  </div>
+
+  <!-- ════════ PROFILE SIDE OVERLAY ════════ -->
+  <div class="side-overlay" id="profile-overlay">
+    <div class="pf-header">
+      <button class="back-btn" onclick="closeProfile()"><i class="ti ti-chevron-left"></i></button>
+      <div class="avatar" style="cursor:default">MR</div>
+      <div>
+        <div style="font-size:15px;font-weight:700;color:#1a1a2e">Maya Rodriguez</div>
+        <div style="font-size:12px;color:#888">maya.rodriguez@email.com</div>
+      </div>
+    </div>
+    <div class="pf-tabs">
+      <button class="pf-tab act" id="pftab-details" onclick="pfTab('details')">My details</button>
+      <button class="pf-tab" id="pftab-monthly" onclick="pfTab('monthly')">Monthly data</button>
+    </div>
+    <div class="pf-content">
+
+      <!-- ── MY DETAILS ── -->
+      <div class="pf-section act" id="pfsec-details">
+        <button class="details-link" onclick="openDetailsForm()">
+          <div class="details-link-icon"><i class="ti ti-sparkles"></i></div>
+          <div class="details-link-txt">
+            <div class="details-link-title">Fill in your details for smarter suggestions <i class="ti ti-arrow-right arrow"></i></div>
+            <div class="details-link-sub">The more we know, the better we tailor your investments. Takes 2 minutes — all optional.</div>
+          </div>
+        </button>
+
+        <div class="form-label">What are you investing for?</div>
+        <button class="goal-btn sel" onclick="selGoal(0,this)"><i class="ti ti-home"></i><span class="goal-btn-txt">A first home</span></button>
+        <button class="goal-btn" onclick="selGoal(1,this)"><i class="ti ti-coins"></i><span class="goal-btn-txt">Building wealth</span></button>
+        <button class="goal-btn" onclick="selGoal(2,this)"><i class="ti ti-beach"></i><span class="goal-btn-txt">Retirement</span></button>
+        <button class="goal-btn" onclick="selGoal(3,this)"><i class="ti ti-school"></i><span class="goal-btn-txt">Education</span></button>
+
+        <div class="form-label" style="margin-top:16px">Timeline</div>
+        <div class="pill-row">
+          <div class="pill-sel" onclick="selTL(0,this)">Under 3 yrs</div>
+          <div class="pill-sel act" onclick="selTL(1,this)">3–10 yrs</div>
+          <div class="pill-sel" onclick="selTL(2,this)">10+ yrs</div>
+        </div>
+
+        <div class="form-label" style="margin-top:16px">Risk tolerance</div>
+        <div class="risk-track" id="risk-track">
+          <div class="risk-seg" style="background:#ec111a" onclick="setRisk(0)"></div>
+          <div class="risk-seg" onclick="setRisk(1)"></div>
+          <div class="risk-seg" onclick="setRisk(2)"></div>
+        </div>
+        <div class="risk-labels"><span>Play it safe</span><span>Balanced</span><span>Go for growth</span></div>
+
+        <div class="form-label" style="margin-top:16px">Monthly income</div>
+        <div class="pill-row">
+          <div class="pill-sel" onclick="selInc(0,this)">Under $2k</div>
+          <div class="pill-sel act" onclick="selInc(1,this)">$2k–$4k</div>
+          <div class="pill-sel" onclick="selInc(2,this)">$4k+</div>
+        </div>
+
+        <button class="save-btn" onclick="saveProfile()">Save profile</button>
+      </div>
+
+      <!-- ── MONTHLY DATA ── -->
+      <div class="pf-section" id="pfsec-monthly">
+        <div style="text-align:center;margin-bottom:6px">
+          <div class="muted" style="font-weight:600">2025</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:#ec111a;line-height:1">$1,847 invested</div>
+          <div class="muted">across the year</div>
+        </div>
+        <div class="month-pill-row" id="month-pills"></div>
+        <div class="sum-grid" id="sum-grid"></div>
+        <div class="sect" style="margin-top:14px">Top investments this month</div>
+        <div id="spot-list"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════ DETAILS FORM SIDE OVERLAY ════════ -->
+  <div class="side-overlay" id="details-overlay">
+    <div class="pf-header">
+      <button class="back-btn" onclick="closeDetailsForm()"><i class="ti ti-chevron-left"></i></button>
+      <div>
+        <div style="font-size:15px;font-weight:700;color:#1a1a2e">Your details</div>
+        <div style="font-size:12px;color:#888">All optional — fields marked KEY help the most</div>
+      </div>
+    </div>
+    <div class="pf-content">
+
+      <div class="form-section-title"><i class="ti ti-user"></i> Who you are</div>
+      <label class="form-label">Age <span class="priority-tag">KEY</span></label>
+      <input class="form-input" type="number" placeholder="22">
+      <label class="form-label">Employment status</label>
+      <input class="form-input" type="text" placeholder="Full-time">
+      <label class="form-label">Province</label>
+      <input class="form-input" type="text" placeholder="Ontario">
+      <label class="form-label">Dependents <span class="priority-tag">KEY</span></label>
+      <input class="form-input" type="number" placeholder="0">
+
+      <div class="form-section-title"><i class="ti ti-wallet"></i> Your money</div>
+      <label class="form-label">Annual income <span class="priority-tag">KEY</span></label>
+      <input class="form-input" type="text" placeholder="$36,000">
+      <label class="form-label">Monthly expenses</label>
+      <input class="form-input" type="text" placeholder="$2,100">
+      <label class="form-label">Emergency fund</label>
+      <input class="form-input" type="text" placeholder="$3,000">
+      <label class="form-label">Outstanding debt</label>
+      <input class="form-input" type="text" placeholder="$0">
+
+      <div class="form-section-title"><i class="ti ti-target"></i> Your goals</div>
+      <label class="form-label">What you're investing for <span class="priority-tag">KEY</span></label>
+      <input class="form-input" type="text" placeholder="First home down payment">
+      <label class="form-label">Target amount</label>
+      <input class="form-input" type="text" placeholder="$40,000">
+      <label class="form-label">How flexible is the timeline?</label>
+      <input class="form-input" type="text" placeholder="Somewhat flexible">
+
+      <div class="form-section-title"><i class="ti ti-activity"></i> Risk</div>
+      <label class="form-label">If your portfolio dropped 20%, you'd… <span class="priority-tag">KEY</span></label>
+      <input class="form-input" type="text" placeholder="Hold and wait it out">
+      <label class="form-label">Job security</label>
+      <input class="form-input" type="text" placeholder="Stable">
+      <label class="form-label">Do you have insurance coverage?</label>
+      <input class="form-input" type="text" placeholder="Yes — health & life">
+
+      <div class="form-section-title"><i class="ti ti-receipt-tax"></i> Tax situation</div>
+      <label class="form-label">Tax bracket</label>
+      <input class="form-input" type="text" placeholder="20.05%">
+      <label class="form-label">Employer RRSP matching?</label>
+      <input class="form-input" type="text" placeholder="No">
+
+      <div class="form-section-title"><i class="ti ti-adjustments"></i> Preferences</div>
+      <label class="form-label">Automated or hands-on?</label>
+      <input class="form-input" type="text" placeholder="Mostly automated">
+      <label class="form-label">Care about ESG / ethical investing?</label>
+      <input class="form-input" type="text" placeholder="Somewhat">
+      <label class="form-label">Growth or dividends?</label>
+      <input class="form-input" type="text" placeholder="Growth">
+
+      <button class="save-btn" onclick="saveDetailsForm()">Save details</button>
+    </div>
+  </div>
+
+  <!-- ════════ POPUP OVERLAY ════════ -->
+  <div class="overlay" id="popup-overlay" onclick="if(event.target===this)closePopup()">
+    <div class="popup">
+      <div class="close-pill"></div>
+      <div class="popup-icon" id="popup-icon"><i class="ti ti-check"></i></div>
+      <h3 id="popup-title">Done</h3>
+      <p id="popup-text">Saved.</p>
+      <button class="save-btn" style="margin-top:0" onclick="closePopup()">Got it</button>
+    </div>
+  </div>
+
+  <!-- ════════ INVESTMENT WRAP STORY OVERLAY ════════ -->
+  <div class="wrap-story" id="wrap-story">
+    <div class="sp-bar" id="sp-bar"></div>
+    <button class="st-close" onclick="closeWrap()"><i class="ti ti-x"></i></button>
+    <button class="st-left" onclick="prevSlide()"></button>
+    <button class="st-right" onclick="nextSlide()"></button>
+
+    <!-- Slide 0: Intro (red) -->
+    <div class="ss on" id="ss0" style="background:#ec111a;justify-content:center">
+      <div style="text-align:center">
+        <i class="ti ti-sparkles" style="font-size:64px;color:#fff;margin-bottom:24px"></i>
+        <div class="mega" style="font-size:60px;color:#fff">YOUR 2025<br>INVESTMENT<br>WRAP.</div>
+        <p style="color:rgba(255,255,255,0.9);font-size:15px;margin-top:20px;line-height:1.5">A year ago you weren't investing.<br>Look how far you've come.</p>
+        <div style="margin-top:28px;color:rgba(255,255,255,0.7);font-size:13px;font-weight:600">Tap to see your year →</div>
+      </div>
+    </div>
+
+    <!-- Slide 1: Total (white) -->
+    <div class="ss" id="ss1" style="background:#fff">
+      <div style="width:100%">
+        <div class="muted" style="font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:12px">You invested</div>
+        <div class="mega" id="ss1-total" style="font-size:84px;color:#ec111a">$0</div>
+        <div class="muted" style="margin-bottom:24px">in 2025. Your first full year.</div>
+        <div class="sum-grid">
+          <div class="sum-card"><div class="lbl">Round-ups</div><div class="v" id="ss1-roundup">$0</div></div>
+          <div class="sum-card"><div class="lbl">Suggestions</div><div class="v" id="ss1-sugg">$0</div></div>
+          <div class="sum-card"><div class="lbl">Growth</div><div class="v" id="ss1-growth">$0</div></div>
+          <div class="sum-card"><div class="lbl">Streak</div><div class="v" id="ss1-streak">0d</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: #1 Company (dark) -->
+    <div class="ss" id="ss2" style="background:#1a1a2e">
+      <div class="wbig">#1</div>
+      <div style="width:100%;position:relative;z-index:2">
+        <div style="color:rgba(255,255,255,0.7);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:12px">Your #1 company</div>
+        <div class="mega" style="font-size:72px;color:#fff;margin-top:6px">APPLE</div>
+        <div class="mega" id="ss2-amt" style="font-size:56px;color:#4ade80;margin-top:6px">$0</div>
+        <div style="color:rgba(255,255,255,0.8);font-size:14px;margin:6px 0 22px">14.2% of your portfolio · <span style="color:#4ade80;font-weight:700">+18.4% return</span></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="background:rgba(255,255,255,0.12);color:#fff;font-size:12px;font-weight:600;padding:8px 14px;border-radius:20px">via XEQT ETF</span>
+          <span style="background:rgba(255,255,255,0.12);color:#fff;font-size:12px;font-weight:600;padding:8px 14px;border-radius:20px">Direct stock</span>
+          <span style="background:rgba(255,255,255,0.12);color:#fff;font-size:12px;font-weight:600;padding:8px 14px;border-radius:20px">Round-ups</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Top 5 (white) -->
+    <div class="ss" id="ss3" style="background:#fff">
+      <div style="width:100%">
+        <div class="muted" style="font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:12px">Your top 5</div>
+        <div class="mega" style="font-size:48px;color:#1a1a2e;margin-bottom:18px">COMPANIES</div>
+        <div class="spot-row" style="cursor:default"><div class="spot-rank">1</div><div class="spot-art" style="background:#ec111a;color:#fff">AAPL</div><div class="spot-info"><div class="spot-name">Apple</div><div class="spot-sub">XEQT + direct + round-ups</div></div><div class="spot-amt">$262</div></div>
+        <div class="spot-row" style="cursor:default"><div class="spot-rank">2</div><div class="spot-art" style="background:#1a1a2e;color:#fff">MSFT</div><div class="spot-info"><div class="spot-name">Microsoft</div><div class="spot-sub">XEQT + VFV ETFs</div></div><div class="spot-amt">$198</div></div>
+        <div class="spot-row" style="cursor:default"><div class="spot-rank">3</div><div class="spot-art" style="background:#f5f5f7;color:#ec111a">RY</div><div class="spot-info"><div class="spot-name">Royal Bank</div><div class="spot-sub">XIU ETF + round-ups</div></div><div class="spot-amt">$164</div></div>
+        <div class="spot-row" style="cursor:default"><div class="spot-rank">4</div><div class="spot-art" style="background:#ec111a;color:#fff">NVDA</div><div class="spot-info"><div class="spot-name">Nvidia</div><div class="spot-sub">VFV ETF</div></div><div class="spot-amt">$142</div></div>
+        <div class="spot-row" style="cursor:default;border-bottom:none"><div class="spot-rank">5</div><div class="spot-art" style="background:#1a1a2e;color:#fff">AMZN</div><div class="spot-info"><div class="spot-name">Amazon</div><div class="spot-sub">XEQT ETF</div></div><div class="spot-amt">$118</div></div>
+      </div>
+    </div>
+
+    <!-- Slide 4: Investor type (dark) -->
+    <div class="ss" id="ss4" style="background:#1a1a2e;justify-content:center">
+      <div style="width:100%;text-align:center">
+        <div style="color:rgba(255,255,255,0.7);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:12px">Your investor type</div>
+        <div class="mega" style="font-size:62px;color:#fff;margin:8px 0 4px">THE TECH<br>OPTIMIST</div>
+        <p style="color:rgba(255,255,255,0.85);font-size:14px;line-height:1.5;margin-bottom:28px">You bet on the companies building the future — and it's paying off.</p>
+        <div style="text-align:left">
+          <div class="list-row"><div style="flex:1;color:#fff;font-weight:600">Technology</div><div style="color:#4ade80;font-weight:700">48%</div></div>
+          <div class="list-row"><div style="flex:1;color:#fff;font-weight:600">Finance</div><div style="color:#fff;font-weight:700">24%</div></div>
+          <div class="list-row" style="border-bottom:none"><div style="flex:1;color:#fff;font-weight:600">Consumer</div><div style="color:#fff;font-weight:700">14%</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5: Progress (red) -->
+    <div class="ss" id="ss5" style="background:#ec111a;justify-content:center">
+      <div style="width:100%;text-align:center">
+        <i class="ti ti-home" style="font-size:48px;color:#fff;margin-bottom:14px"></i>
+        <div style="color:rgba(255,255,255,0.85);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:12px">Toward your first home</div>
+        <div class="mega" style="font-size:96px;color:#fff;line-height:1;margin:6px 0">18%</div>
+        <div style="width:100%;height:14px;background:rgba(255,255,255,0.25);border-radius:7px;overflow:hidden;margin:12px 0 8px">
+          <div id="ss5-bar" style="height:100%;width:0;background:#fff;border-radius:7px;transition:width 1.4s cubic-bezier(0.22,1,0.36,1)"></div>
+        </div>
+        <p style="color:rgba(255,255,255,0.9);font-size:14px;margin-top:14px">At this pace, you're <b>4.2 years</b> from your goal.<br>Keep going.</p>
+      </div>
+    </div>
+
+    <!-- Slide 6: Finale (red) -->
+    <div class="ss" id="ss6" style="background:#ec111a;justify-content:center">
+      <div class="cf-wrap" id="cf-wrap"></div>
+      <div style="width:100%;text-align:center;position:relative;z-index:2">
+        <div class="mega" style="font-size:64px;color:#fff">YOU'RE AN<br>INVESTOR<br>NOW.</div>
+        <div class="sum-grid" style="margin:24px 0 4px">
+          <div class="sum-card" style="background:rgba(255,255,255,0.15)"><div class="lbl" style="color:rgba(255,255,255,0.8)">Invested</div><div class="v" style="color:#fff">$1,847</div></div>
+          <div class="sum-card" style="background:rgba(255,255,255,0.15)"><div class="lbl" style="color:rgba(255,255,255,0.8)">Return</div><div class="v" style="color:#fff">+6.7%</div></div>
+        </div>
+        <button class="btn-white" onclick="shareWrap()"><i class="ti ti-share"></i> Share my Wrap</button>
+        <button class="btn-ghost" onclick="closeWrap()">Close</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
